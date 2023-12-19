@@ -14,6 +14,9 @@ mongoose.connection.on('error', (err) => {
   process.exit();
 });
 
-mongoose.connection.once('open', () => {
-  console.log(`Connected to MongoDB: ${MONGO_URI}`);
-});
+mongoose.connection
+  .once('open', () => {
+    console.log(`Connected to MongoDB: ${MONGO_URI}`);
+  })
+  .then(() => console.log('Connect success'))
+  .catch(() => console.log('Connect error'));
