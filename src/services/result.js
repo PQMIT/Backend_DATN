@@ -9,7 +9,7 @@ const findAllResultByContest = async ({ contestId }) => {
   const { data, metadata } = await resultDao.findAllResult({
     query: { contest: contestId },
     sort: ['amountCorrectQuestion_desc'],
-    populate: ['participant'],
+    populate: ['participant', 'history.question'],
   });
   return { data, metadata };
 };

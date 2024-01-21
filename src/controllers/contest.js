@@ -111,10 +111,12 @@ const mark = async (req, res) => {
 
 const getAllResultByContest = async (req, res) => {
   const { id: contestId } = req.params;
+  const { user } = req;
   const { data, metadata } = await resultService.findAllResultByContest({
     contestId,
+    userId: user._id,
   });
-
+  // console.log({ data, metadata });
   return res.send({ status: 1, result: { data, metadata } });
 };
 
@@ -126,7 +128,7 @@ const getAllResultByUserInContest = async (req, res) => {
     contestId,
     userId: user._id,
   });
-  console.log({ data, metadata });
+  // console.log({ data, metadata });
   return res.send({ status: 1, result: { data, metadata } });
 };
 

@@ -15,9 +15,11 @@ const resultSchema = new mongoose.Schema(
         question: {
           type: ObjectId,
           ref: 'Question',
+          // explain: String,
         },
         choice: String,
         isCorrect: Boolean,
+        // content: String,
       },
     ],
     comment: String,
